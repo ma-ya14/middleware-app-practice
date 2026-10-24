@@ -18,4 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 // 管理者ページ（ミドルウェア未適用 - 受講生が実装する）
-Route::get('/admin', [AdminController::class, 'index']);
+//Route::get('/admin', [AdminController::class, 'index']);// ここに移動する
+  Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
+
+
+//Route::middleware(['auth', 'admin'])->group(function () {
+    //Route::get('/admin', [AdminController::class, 'index']);// ここに移動する
+    //Route::get('/admin/dashboard', [AdminController::class, 'index']);
+    //Route::get('/admin/users', [AdminController::class, 'users']);
+//});
